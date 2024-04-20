@@ -19,7 +19,8 @@
   /* шрифт */
   --text-color: var(--color-black, #000000);
   --page-font-family: "Inter", sans-serif;
-  --page-font-weight: 400;
+  --page-main-font-weight: 400;
+  --headings-font-weight: 700;
   --accent-font-family: "PressStart2P", fantasy;
 
   /* сердце */

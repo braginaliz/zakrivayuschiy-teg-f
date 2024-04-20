@@ -19,35 +19,21 @@
   min-inline-size: 322px;
   min-block-size: 100dvb;
   padding-block-start: 100px;
+  padding-block-end: 105px;
   color: var(--text-color);
   font-family: var(--page-font-family);
   background-color: var(--background-color);
   background-size: cover;
   background-attachment: fixed;
-  font-variation-settings: "wght" var(--page-font-weight);
+  font-variation-settings: "wght" var(--page-main-font-weight ,400);
   background-image: var(--background-image, none);
   justify-content: center;
   align-items: center;
 
 }
 
-.button-save {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  font-family: var(--accent-font-family);
-  padding: 0;
-  border: 2px solid var(--text-color);
-  min-inline-size: 335px;
-  min-block-size: 50px;
-  font-size: 14px;
-  background-color: transparent;
-  transition: border-color 0.3s ease;
-  appearance: none;
-  cursor: pointer;
-  background: var(--background-color);
-}
+
+
 
 /* header */
 
@@ -58,6 +44,7 @@
   font-family: var(--accent-font-family);
   line-height: normal;
   text-transform: uppercase;
+  max-block-size: 368px;
 }
 
 .header-page {
@@ -85,8 +72,8 @@
 
 .theme-menu__list {
   display: grid;
-  gap: 10px;
-  padding-left: 15px;
+  gap: 8px;
+  padding-left: 20px;
 }
 
 .theme-menu__button {
@@ -98,19 +85,36 @@
   cursor: pointer;
 }
 
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  background-color: var(--text-color);
+  transition: inline-size 0.3s ease-out;
+  inline-size: 0%;
+  block-size: 2px;
+}
+
+.theme-menu__button:focus-visible::after {
+  inline-size: 100%;
+}
+
+
+
 .theme-menu__button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .theme-menu__button:focus {
   outline: none;
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .theme-menu__button:disabled {
   opacity: 0.6;
   pointer-events: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .theme-menu__button:disabled::before {
@@ -122,6 +126,7 @@
   color: currentColor;
   animation: arrow 0.5s ease-in-out infinite alternate;
   inset-inline-start: -15px;
+  cursor: pointer;
 }
 
 .theme-menu__button:not(:disabled)::after {
@@ -133,6 +138,7 @@
   transform-origin: left;
   inline-size: 100%;
   block-size: 2px;
+  cursor: pointer;
 }
 
 /* main */
@@ -149,6 +155,7 @@
   max-inline-size: 698px;
   justify-content: center;
   justify-items: center;
+  position: relative;
 }
 
 .card-header {
@@ -161,13 +168,13 @@
   justify-content: center;
   justify-items: center;
   gap: 50px;
-  max-inline-size: 698px;
+  position: relative;
 }
 
 .card-title {
   font-family: var(--page-font-family);
   font-size: 18px;
-  font-variation-settings: "wght" 700;
+  font-variation-settings: "wght" var(--headings-font-weight, 700);
   line-height: 21.78px;
   text-align: left;
 }
@@ -176,16 +183,34 @@
   display: block;
   object-fit: cover;
   inline-size: 100%;
+  max-inline-size: 698px;
+  max-block-size: 698px;
   object-position: center;
+  overflow: hidden;
 }
 
+
 .card-content {
+  border-top: 2px solid var(--text-color);
   display: grid;
-  gap: 25px;
+  gap: 27px;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
-  padding: 30px 23px 0px 23px;
+  padding: 25px 20px 0px 23px;
+}
+
+.сard-content-etape {
+  padding-top: 30px;
+}
+
+.card-content-now {
+  padding-right: 25px;
+
+}
+
+.card-content-when {
+  padding-top: 30px;
 }
 
 .card-img-car {
@@ -198,16 +223,13 @@
   position: absolute;
   z-index: 2;
   opacity: 0.5;
-  top: 0;
-  left: 0;
+  top: 58px;
+  right: 25px;
   mix-blend-mode: hard-light;
   color: var(--text-color);
   font-family: var(--accent-font-family);
   font-size: 14px;
-  text-transform: uppercase;
   line-height: normal;
-  inset-inline-end: 13px;
-  inset-block-start: 24px;
 }
 
 .card-footer-button {
@@ -215,6 +237,7 @@
   justify-content: end;
   gap: 5px;
   padding: 25px 23px;
+  cursor: pointer;
 }
 
 .button {
@@ -223,39 +246,51 @@
   border: 2px solid var(--text-color);
   font-family: var(--accent-font-family);
   font-size: 14px;
-  background: var(--background-color);
+  background: transparent;
   cursor: pointer;
   transition-duration: 0.3s;
   transition-timing-function: ease;
   text-transform: inherit;
-  padding: 10px 36px;
+  padding: 10px 35px;
   appearance: none;
+}
+
+.button__text {
+  color: var(--text-color);
 }
 
 .button::before {
   content: '';
   position: absolute;
+  inset: 0;
   z-index: -2;
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
+  cursor: pointer;
+  background-color: var(--text-color);
 }
+
 
 .button:focus {
   outline: none;
+  cursor: pointer;
 }
 
 .button:focus-visible {
   box-shadow: 2px 2px 0px 0px var(--text-color);
+  cursor: pointer;
 }
 
 .button:hover::before {
   transform: scaleX(1);
+  cursor: pointer;
 }
 
 .button__text {
-  color: var(--background-color);
+  color: var(--text-color);
   mix-blend-mode: difference;
+  cursor: pointer;
 
 }
 
@@ -274,10 +309,12 @@
 
 .card__icon-button:focus {
   outline: none;
+  cursor: pointer;
 }
 
 .card__icon-button:focus-visible {
   border-color: var(--text-color);
+  cursor: pointer;
 }
 
 /* фильтры */
@@ -349,34 +386,75 @@
 
 .modal__button {
   inline-size: 100%;
+  cursor: pointer;
 }
 
 .button__icon {
   block-size: 22px;
   inline-size: 22px;
+
 }
 
-
-
+.button--save {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
 
 @media (width <= 375px) {
   .card__icon-button {
     block-size: 28px;
     inline-size: 28px;
-  }
-  .button-save {
-    flex-direction: column;
+    cursor: pointer;
   }
 
+  .card {
+    max-inline-size: 375px;
+  }
+
+  .card-footer-button {
+    gap: 20px;
+  }
+
+  .card-content{
+    padding: 25px 30px 0 25px;
+  }
+
+  
+  .card-content-now {
+    padding-right: 30px;
+  
+  }
+  
+  .card-content-when {
+    padding-top: 30px;
+  }
+  
+
+ .button--save {
+    flex-direction: column;
+  
+  }
+
+  .modal {
+    padding: 28px 34px 28px 40px;
+    max-inline-size: 340px;
+  }
 }
 
 @supports (
-  (-webkit-text-stroke: 1px var(--page-background-color, #ffffff)) or
-    (text-stroke: 1px var(--page-background-color, #ffffff))
+  (-webkit-text-stroke: 1px var(--background-color, #ffffff)) or
+    (text-stroke: 1px var(--background-color, #ffffff))
 ) {
   .card-watermark {
     text-shadow: none;
-    -webkit-text-stroke: 1px var(--page-background-color, #ffffff);
-    text-stroke: 1px var(--page-background-color, #ffffff);
+    -webkit-text-stroke: 1px var(--background-color, #ffffff);
+    text-stroke: 1px var(--background-color, #ffffff);
   }
 }
+
