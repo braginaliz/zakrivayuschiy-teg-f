@@ -44,7 +44,6 @@
   font-family: var(--accent-font-family);
   line-height: normal;
   text-transform: uppercase;
-  max-block-size: 368px;
 }
 
 .header-page {
@@ -87,17 +86,25 @@
 
 .theme-menu__button::after {
   content: '';
+  position: absolute;
   display: block;
   background-color: var(--text-color);
-  transition: inline-size 0.3s ease-out;
-  inline-size: 0%;
-  block-size: 2px;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 3px;
+  inline-size: 100%;
+  inset-block-end: -3px;
+  inset-inline-start: 0;
+}
+
+.theme-menu__button:focus {
+  outline: none;
 }
 
 .theme-menu__button:focus-visible::after {
-  inline-size: 100%;
+  transform: scaleX(1);
 }
-
 
 
 .theme-menu__button:hover {
@@ -230,6 +237,7 @@
   font-family: var(--accent-font-family);
   font-size: 14px;
   line-height: normal;
+  text-shadow: 0 0 1px var(--background-color, #ffffff);
 }
 
 .card-footer-button {
@@ -251,12 +259,8 @@
   transition-duration: 0.3s;
   transition-timing-function: ease;
   text-transform: inherit;
-  padding: 10px 35px;
+  min-inline-size: 130px;
   appearance: none;
-}
-
-.button__text {
-  color: var(--text-color);
 }
 
 .button::before {
@@ -270,7 +274,6 @@
   cursor: pointer;
   background-color: var(--text-color);
 }
-
 
 .button:focus {
   outline: none;
@@ -369,7 +372,7 @@
 
 .modal::backdrop {
   opacity: 0.75;
-  background: var(--text-color);
+  background: var(--background-color);
 }
 
 .modal__icon{
@@ -386,13 +389,13 @@
 
 .modal__button {
   inline-size: 100%;
+  min-block-size: 38px;
   cursor: pointer;
 }
 
 .button__icon {
   block-size: 22px;
   inline-size: 22px;
-
 }
 
 .button--save {
@@ -402,7 +405,8 @@
   align-items: center;
   gap: 10px;
   padding: 15px 20px;
-  background-color: transparent;
+  margin-top: 50px;
+  background-color: var(--background-color);
   cursor: pointer;
 }
 
@@ -438,12 +442,35 @@
 
  .button--save {
     flex-direction: column;
+  }
   
+  .button{
+    min-block-size: 38px;
+  }
+
+  .card-watermark {
+    top: 80px;
+    right: 10px;
+  }
+
+  .button__icon {
+    block-size: 28px;
+    inline-size: 28px;
   }
 
   .modal {
-    padding: 28px 34px 28px 40px;
-    max-inline-size: 340px;
+    padding: 32px 42px;
+    max-inline-size: 341px;
+    max-block-size: 191px;
+  }
+
+  .modal__text {
+    font-family: var(--accent-font-family);
+    font-size: 14px;
+    font-weight: var(--page-main-font-weight);
+    line-height: 21px;
+    text-align: left;
+
   }
 }
 

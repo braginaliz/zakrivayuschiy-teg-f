@@ -18,7 +18,7 @@
   </head>
   <body class="page">
     <header class="header card header-page">
-      <span class="main-title header-title">&lt;/HTML&gt;</span>
+      <a class="main-title header-title">&lt;/HTML&gt;</a>
       <h1 class="header-subtitle">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -424,27 +424,25 @@
             </button>
           </div>
         </li>
-      <li>
-        <button
+      </ul>
+      <button
         type="button"
         onclick="window.modal.showModal();"
         aria-controls="modal"
         class="button button--save"
       >
-        <svg class="button__icon" viewBox="0 0 39 39">
+        <svg class="button__icon" viewBox="0 0 40 40">
           <use href="svg/floppy-min 2.svg#floppy" />
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
-      </li>
-      </ul>
     </main>
     <dialog class="modal" id="modal">
       <div class="modal__content">
-        <svg class="modal__icon"> 
+        <svg class="modal__icon" viewBox="0 0 40 40"> 
           <use href="./svg/floppy-min 2.svg#floppy"/>
           </svg>
-        <p>Вставьте дискету, чтобы продолжить</p>          
+        <p class="modal__text">Вставьте дискету, чтобы продолжить</p>          
       </div>
       <form method="dialog">
         <button type="submit" class="button modal__button">
