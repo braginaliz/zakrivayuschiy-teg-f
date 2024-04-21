@@ -27,4 +27,7 @@
   --contour-color: var(--text-color);
   --main-body-color:none;
   --sparks-color: #ff0000;
+
+  --button-text-color: var(--color-white, #fff);
+  --button-disabled: #000000;
 }
