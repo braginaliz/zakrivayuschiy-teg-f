@@ -77,16 +77,17 @@
 }
 
 .theme-menu__button {
+  position: relative;
+  border: none;
   font-size: 14px;
   text-transform: uppercase;
   background: transparent;
-  position: relative;
-  border: none;
+  transition: opacity 0.3s ease;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  appearance: none;
 }
 
-.theme-menu__button:after {
+.theme-menu__button:not(:disabled)::after {
   content: " ";
   display: block;
   background: currentColor;
@@ -106,13 +107,27 @@
   opacity: 0.6;
 }
 
+.theme-menu__button:focus::after {
+  color: var(--text-color);
+  outline: none;
+  transform: scaleX(1);
+}
+
+
 .theme-menu__button:focus-visible {
+  color: var(--text-color);
+  opacity: 0.6;
+  outline: none;
+
+}
+
+.theme-menu__button:focus-visible::after {
   transform: scaleX(1);
 }
 
 .theme-menu__button:disabled {
   opacity: 0.6;
-  cursor: default;
+  cursor: pointer;
   pointer-events: none;
 }
 
@@ -123,6 +138,7 @@
   inset-inline-start: -15px;
   inset-block-start: 0px;
 }
+
 
 
 /* main */
@@ -282,6 +298,7 @@
   cursor: pointer;
   color: var(--button-text-color);
 }
+
 
 
 /* сердце-иконка */
